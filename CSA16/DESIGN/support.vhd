@@ -1,0 +1,22 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+-- n-bit=16  quindi   2^(15) : 2^(15)-1
+
+package myfunc is
+    function pow2(nbit: in integer) return integer;
+end package myfunc;
+
+package body myfunc is
+    function pow2(nbit: in integer) return integer is
+        variable i:integer;
+        variable pown: integer;
+    begin
+        pown:=1;
+        for i in 0 to nbit loop
+            exit when (i=nbit);
+            pown:= pown*2;
+        end loop;
+        return pown;
+        end function pow2;
+end package body myfunc;
